@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block nav %}
+    <nav id="nav">
+        <ul>
+            <li class="active"><a href="index.html">Homepage</a></li>
+            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+            <li><a href="right-sidebar.html">One More Thing</a></li>
+            <li><a href="no-sidebar.html">No Sidebar</a></li>
+        </ul>
+    </nav>
+{% endblock nav %}
+
 {% block main %}
     <section>
         <header>
@@ -8,8 +19,8 @@
             <span class="byline">Do believe the faith in what you're doing and do not panic.</span>
         </header>
         <a href="#" class="image full"><img src="{% static 'blog/images/pic07.jpg' %}" alt="" /></a>
-        <p>这是<strong>唐中汉</strong>的个人博客！</p>
-        <p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor.</p>
+        <p class="lead">这是<strong>唐中汉</strong>的个人博客！</p>
+        <p class="lead pre"></p>
     </section>
     <div class="row">
         {% for post in post_list %}
@@ -25,29 +36,3 @@
     </div>
 {% endblock main %}
 
-{% block toc %}
-    <div id="sidebar" class="4u">
-        <section>
-            <header>
-                <h2>Pellentesque vulputate</h2>
-            </header>
-            <ul class="style">
-                <li>
-                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
-                    <img src="{% static 'blog/images/pic04.jpg' %}" alt="" />
-                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
-                </li>
-                <li>
-                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
-                    <img src="{% static 'blog/images/pic05.jpg' %}" alt="" />
-                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
-                </li>
-                <li>
-                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
-                    <img src="{% static 'blog/images/pic06.jpg' %}" alt="" />
-                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
-                </li>
-            </ul>
-        </section>
-    </div>
-{% endblock toc %}

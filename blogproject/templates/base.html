@@ -1,4 +1,8 @@
 {% load staticfiles %}
+{% load blog_tags %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 <!DOCTYPE HTML>
 <html>
@@ -16,7 +20,7 @@
         <link rel="stylesheet" href="{% static 'blog/css/skel-noscript.css' %}" />
         <link rel="stylesheet" href="{% static 'blog/css/style.css' %}" />
         <link rel="stylesheet" href="{% static 'blog/css/style-desktop.css' %}" />
-        <link rel="stylesheet" href="{% static 'blog/css/highlights/github.css' %}" />
+        <link rel="stylesheet" href="blog/static/css/highlights/github.css" />
 
 		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'blog/css/ie/v8.css' %}" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'blog/css/ie/v9.css' %}" /><![endif]-->
@@ -34,14 +38,8 @@
 				</div>
 
 				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li class="active"><a href="index.html">Homepage</a></li>
-						<li><a href="left-sidebar.html">Left Sidebar</a></li>
-						<li><a href="right-sidebar.html">One More Thing</a></li>
-						<li><a href="no-sidebar.html">No Sidebar</a></li>
-					</ul>
-				</nav>
+				{% block nav %}
+                {% endblock nav %}
 			</div>
 		</div>
 
@@ -57,10 +55,25 @@
 					</div>
 
 					<!-- Sidebar -->
-					<div id="sidebar" class="4u">
-						{% block toc %}
-                        {% endblock toc %}
-					</div>
+                    <div id="sidebar" class="4u">
+                        <section>
+                            <header>
+                                <h2>Pellentesque vulputate</h2>
+                            </header>
+                            <ul class="style">
+                                <li>
+                                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
+                                    <img src="{% static 'blog/images/pic04.jpg' %}" alt="" />
+                                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
+                                </li>
+                                <li>
+                                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
+                                    <img src="{% static 'blog/images/pic05.jpg' %}" alt="" />
+                                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -73,14 +86,17 @@
 				<div class="row">
 					<div class="4u">
 						<section>
-							<h2>Latest Posts</h2>
-							<ul class="default">
-								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
-								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
-								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
-								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
-								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
-							</ul>
+							<h2>最新文章</h2>
+                            {% get_recent_posts as recent_post_list %}
+							    <ul class="default">
+								    {% for post in recent_post_list %}
+                                        <li>
+                                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                        </li>
+                                    {% empty %}
+                                        暂无文章噢
+                                    {% endfor %}
+							    </ul>
 						</section>
 					</div>
 					<div class="4u">
