@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 注册应用
     'blog',
+    'comments',
     # 第三方应用
     'bootstrap3',
 ]
