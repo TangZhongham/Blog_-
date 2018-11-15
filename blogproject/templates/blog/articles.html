@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block nav %}
+    <nav id="nav">
+        <ul>
+            <li><a href="{% url 'blog:index' %}">Homepage</a></li>
+            <li class="active"><a href="{% url 'blog:articles' %}">articles</a></li>
+            <li><a href="#">One More Thing</a></li>
+        </ul>
+    </nav>
+{% endblock nav %}
+
+{% block main %}
+    <section>
+        <header>
+            <h2>Welcome to My Blog</h2>
+            <span class="byline">Do believe the faith in what you're doing and do not panic.</span>
+        </header>
+        <a href="#" class="image full"><img src="{% static 'blog/images/pic07.jpg' %}" alt="" /></a>
+        <p class="lead">这是<strong>唐中汉</strong>的个人博客！</p>
+        <p class="lead pre"></p>
+    </section>
+    <div class="row">
+        {% for post in post_list %}
+        <div class="4u">
+            <a href="{{ post.get_absolute_url }}" class="image full"><img src="{% static 'blog/images/pic01.jpg' %}" alt="" /></a>
+            <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+            <p>{{ post.excerpt }}</p>
+            <p><a href="{{ post.get_absolute_url }}" class="button">More Details</a></p>
+        </div>
+        {% empty %}
+        <h2>还未发布文章！</h2>
+        {% endfor %}
+    </div>
+{% endblock main %}

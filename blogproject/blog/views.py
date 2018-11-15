@@ -27,4 +27,4 @@ def archives(request, year, month):
 
 def articles(request):
     post_list = Post.objects.all().order_by('-created_time')
-    return render(request, 'blog/index.html', context={'post_list': post_list})
+    return render(request, 'blog/articles.html', context={'post_list': post_list})

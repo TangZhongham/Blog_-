@@ -4,7 +4,7 @@
 {% block nav %}
     <nav id="nav">
         <ul>
-            <li class="active"><a href="index.html">Homepage</a></li>
+            <li class="active"><a href="{% url 'blog:index' %}">Homepage</a></li>
             <li><a href="{% url 'blog:articles' %}">articles</a></li>
             <li><a href="#">One More Thing</a></li>
         </ul>
