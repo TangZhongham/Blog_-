@@ -26,7 +26,6 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'blog/css/ie/v9.css' %}" /><![endif]-->
 	</head>
 	<body class="homepage">
-
 		<!-- Header -->
 		<div id="header">
 			<div class="container">
@@ -125,60 +124,13 @@
 		<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
 
 
-		<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="4u">
-						<section>
-							<h2>最新文章</h2>
-                            {% get_recent_posts as recent_post_list %}
-							    <ul class="default">
-								    {% for post in recent_post_list %}
-                                        <li>
-                                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                                        </li>
-                                    {% empty %}
-                                        暂无文章噢
-                                    {% endfor %}
-							    </ul>
-						</section>
-					</div>
-					<div class="4u">
-						<section>
-							<h2>Ultrices fringilla</h2>
-							<ul class="default">
-								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
-								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
-								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
-								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
-								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
-							</ul>
-						</section>
-					</div>
-					<div class="4u">
-						<section>
-							<h2>Aenean elementum</h2>
-							<ul class="default">
-								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
-								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
-								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
-								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
-								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
-							</ul>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
+
 
 		<!-- Copyright -->
 		<div id="copyright">
 			<div class="container">
-				Copyright &copy; 2014.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+				Copyright &copy; 2018.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
 			</div>
 		</div>
-
-
 </body>
 </html>
