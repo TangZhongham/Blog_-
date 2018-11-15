@@ -4,24 +4,19 @@
 {% block main %}
     <section>
         <header>
-            <h2>Welcome to My Blog</h2>
-            <span class="byline">Do believe the faith in what you're doing and do not panic.</span>
+            <h2>{{ post.title }}</h2>
+            <h1></h1>
         </header>
-        <a href="#" class="image full"><img src="{% static 'blog/images/pic07.jpg' %}" alt="" /></a>
-        <p>这是<strong>唐中汉</strong>的个人博客！</p>
-        <p>Sed etiam vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget lorem ipsum dolor.</p>
     </section>
-    <div class="row">
-        {% for post in post_list %}
-        <div class="4u">
-            <a href="{{ post.get_absolute_url }}" class="image full"><img src="{% static 'blog/images/pic01.jpg' %}" alt="" /></a>
-            <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-            <p>{{ post.excerpt }}</p>
-            <p><a href="{{ post.get_absolute_url }}" class="button">More Details</a></p>
-        </div>
-        {% empty %}
-        <h2>还未发布文章！</h2>
-        {% endfor %}
+    <div class="column">
+        <li>
+            <span><a href="#">{{ post.category.name }}</a></span> -
+            <span><a href="#"><time>{{ post.created_time }}</time></a></span> -
+            <span><a href="#">{{ post.author }}</a></span> -
+            <span><a href="#">评论 100</a></span> -
+            <span><a href="#">阅读</a></span>
+            <p>{{ post.body|safe|linebreaks }}</p>
+        </li>
     </div>
 {% endblock main %}
 
