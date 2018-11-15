@@ -33,7 +33,7 @@
 
 				<!-- Logo -->
 				<div id="logo">
-					<h1><a href="#">Gary</a></h1>
+					<h1><a href="{% url 'blog:index' %}">Gary</a></h1>
 					<span>Design</span>
 				</div>
 
@@ -58,18 +58,63 @@
                     <div id="sidebar" class="4u">
                         <section>
                             <header>
-                                <h2>Pellentesque vulputate</h2>
+                                <p class="h1">Also...</>
                             </header>
+                        </section>
+                        <section>
                             <ul class="style">
                                 <li>
-                                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
-                                    <img src="{% static 'blog/images/pic04.jpg' %}" alt="" />
-                                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
+                                    <header>
+                                        <p class="h4 mb-0">最新文章</p>
+                                    </header>
+                                    {% get_recent_posts as recent_post_list %}
+                                        <ul>
+								            {% for post in recent_post_list %}
+                                                <li>
+                                                    <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+                                                </li>
+                                            {% empty %}
+                                            暂无文章噢
+                                            {% endfor %}
+							            </ul>
                                 </li>
+                            </ul>
+                        </section>
+                        <section>
+                             <ul class="style">
                                 <li>
-                                    <p class="posted">August 11, 2002  |  (10 )  Comments</p>
-                                    <img src="{% static 'blog/images/pic05.jpg' %}" alt="" />
-                                    <p class="text">Nullam non wisi a sem eleifend. Donec mattis libero eget urna. Pellentesque viverra enim.</p>
+                                    <header>
+                                        <p class="h4 mb-0">归档</p>
+                                    </header>
+                                    {% archives as date_list %}
+                                        <ul>
+								            {% for date in date_list %}
+                                                <li>
+                                                    <p><a href="{% url 'blog:archives' date.year date.month %}">{{ date.year }} 年 {{ date.month }} 月</a></p>
+                                                </li>
+                                            {% empty %}
+                                            暂无归档噢
+                                            {% endfor %}
+							            </ul>
+                                </li>
+                            </ul>
+                        </section>
+                        <section>
+                            <ul class="style">
+                                <li>
+                                    <header>
+                                        <p class="h4 mb-0">分类</p>
+                                    </header>
+                                    {% get_categories as category_list %}
+                                        <ul>
+								            {% for category in category_list %}
+                                                <li>
+                                                    <a href="#">{{ category.name }} <span class="post-count">(13)</span></a>
+                                                </li>
+                                            {% empty %}
+                                            暂无归档噢
+                                            {% endfor %}
+							            </ul>
                                 </li>
                             </ul>
                         </section>

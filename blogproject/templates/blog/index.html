@@ -5,9 +5,8 @@
     <nav id="nav">
         <ul>
             <li class="active"><a href="index.html">Homepage</a></li>
-            <li><a href="left-sidebar.html">Left Sidebar</a></li>
-            <li><a href="right-sidebar.html">One More Thing</a></li>
-            <li><a href="no-sidebar.html">No Sidebar</a></li>
+            <li><a href="{% url 'blog:articles' %}">articles</a></li>
+            <li><a href="#">One More Thing</a></li>
         </ul>
     </nav>
 {% endblock nav %}
