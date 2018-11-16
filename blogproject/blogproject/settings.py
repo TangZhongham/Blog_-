@@ -121,8 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # django-bootstrap3 设置
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.huai123.fun']
