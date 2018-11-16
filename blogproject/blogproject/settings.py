@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'eh+it_qf$5xyx5d2r61xsl9873cd4*ffu=q4c1g_^1qltwq#y1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 # Application definition
@@ -128,5 +128,4 @@ BOOTSTRAP3 = {
     'include_jquery': True,
 }
 
-DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.huai123.fun']
